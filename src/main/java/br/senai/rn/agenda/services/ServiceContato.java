@@ -14,8 +14,8 @@ public class ServiceContato {
 	@Autowired
 	private ContatoRepository repository;
 
-	public void save(Contato entity) {
-		repository.save(entity);
+	public void save(Contato contato) {
+		repository.save(contato);
 	}
 
 	public List<Contato> findAll() {
@@ -26,11 +26,8 @@ public class ServiceContato {
 		return repository.findById(id).get();
 	}
 
-	public void delete(Contato entity) {
-		repository.delete(entity);
+	public void delete(Contato contato) {
+		repository.delete(contato);
 	}
 
-
-
-	
 }

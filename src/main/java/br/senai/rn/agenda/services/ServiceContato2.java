@@ -1,15 +1,15 @@
 package br.senai.rn.agenda.services;
 
-import java.util.List;
+/*import java.util.List;
 
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import br.senai.rn.agenda.models.Contato;
 import br.senai.rn.agenda.repositories.ContatoRepository;
-
+*/
 public class ServiceContato2 {
-
+/*
 	private ContatoRepository dao = new ContatoRepository();
 
 	public Boolean salvar(Contato contato) {
@@ -54,5 +54,5 @@ public class ServiceContato2 {
 		}
 		return null;
 	}
-
+*/
 }

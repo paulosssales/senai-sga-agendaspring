@@ -21,11 +21,7 @@ public class Contato {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotEmpty
-	@NotNull
 	private String nome;
-	@NotEmpty
-	@NotNull
 	private String fone;
 	private String email;
 	

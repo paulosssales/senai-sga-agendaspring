@@ -17,7 +17,7 @@ public class ContatoController {
 	
 	@GetMapping
 	public String index(Model model) {
-		model.addAttribute("contato", service.findAll());
+		model.addAttribute("contatos", service.findAll());
 		return "index";
 	}
 }
