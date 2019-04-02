@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  * 
@@ -18,13 +20,12 @@ public class Contato {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	/**
-	 * Atributo nome
-	 * Atributo fones
-	 * Atributo emails
-	 */
 	private Long id;
+	@NotEmpty
+	@NotNull
 	private String nome;
+	@NotEmpty
+	@NotNull
 	private String fone;
 	private String email;
 	
