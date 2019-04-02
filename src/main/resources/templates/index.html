@@ -13,7 +13,7 @@
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 
     <title>Index</title>
-    
+
   </head>
   <body>
     <div class="container">
@@ -21,14 +21,14 @@
         <div class="col-6">
           <fieldset>
             <legend>Cadastro</legend>
-            <form action="" method="POST">
+            <form th:object="${contato}" method="POST">
               <div class="form-group">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" class="form-control" />
+                <input type="text" name="nome" id="nome" th:value="*{nome}" th:field="*{nome}" class="form-control" />
               </div>
-              <div class="formu-group">
+              <div class="form-group">
                 <label for="fone">Fone</label>
-                <input type="text" name="fone" id="fone" class="form-control" />
+                <input type="text" name="fone" id="fone" th:value="*{fone}" th:field="*{fone}"  class="form-control" />
               </div>
               <div class="form-group">
                 <label for="email">E-mail</label>
@@ -36,6 +36,8 @@
                   type="text"
                   name="email"
                   id="email"
+                  th:value="*{email}"
+                  th:field="*{email}" 
                   class="form-control"
                 />
               </div>
@@ -56,8 +58,42 @@
             </form>
           </fieldset>
         </div>
+
+        <div class="col-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Fone</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr th:each="contato : ${contatos}">
+                  <td th:text="${contato.id}"></td>
+                  <td th:text="${contato.nome}"></td>
+                  <td th:text="${contato.fone}"></td>
+                  <td th:text="${contato.email}"></td>
+
+                  <td>
+                    <a th:href="@{/editar/{id}(id=${contato.id})}" class="btn btn-success">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                  </td>
+                  <td>
+                      <a th:href="@{/remover/{id}(id=${contato.id})}" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i>
+                      </a>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
       </div>
     </div>
+    
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
