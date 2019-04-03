@@ -21,7 +21,7 @@
         <div class="col-6">
           <fieldset>
             <legend>Cadastro</legend>
-            <form th:object="${contato}" method="POST">
+            <form th:action="@{/contato}" th:object="${contato}" method="POST">
               <div class="form-group">
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" id="nome" th:value="*{nome}" th:field="*{nome}" class="form-control" />
@@ -77,12 +77,12 @@
                   <td th:text="${contato.email}"></td>
 
                   <td>
-                    <a th:href="@{/editar/{id}(id=${contato.id})}" class="btn btn-success">
+                    <a th:href="@{/contato/editar/{id}(id=${contato.id})}" class="btn btn-success">
                       <i class="fas fa-edit"></i>
                     </a>
                   </td>
                   <td>
-                      <a th:href="@{/remover/{id}(id=${contato.id})}" class="btn btn-danger">
+                      <a th:href="@{/contato/remover/{id}(id=${contato.id})}" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i>
                       </a>
                     </td>

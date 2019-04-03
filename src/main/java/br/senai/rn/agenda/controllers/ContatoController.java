@@ -12,7 +12,7 @@ import br.senai.rn.agenda.models.Contato;
 import br.senai.rn.agenda.services.ServiceContato;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/contato")
 public class ContatoController {
 
 	@Autowired
@@ -28,7 +28,7 @@ public class ContatoController {
 	@PostMapping
 	public String salvar(Contato contato) {
 		service.save(contato);
-		return "redirect:/";
+		return "redirect:/contato";
 	}
 
 	@GetMapping("/editar/{id}")
@@ -41,13 +41,13 @@ public class ContatoController {
 	@PostMapping("/editar/{id}")
 	public String save(@PathVariable Long id, Contato contato) {
 		service.save(contato);
-		return "redirect:/";
+		return "redirect:/contato";
 	}
 	
 	@GetMapping("/remover/{id}")
 	public String remover(@PathVariable Long id, Model model) {
 		service.delete(service.findById(id));
-		return "redirect:/";
+		return "redirect:/contato";
 	}
 
 }
