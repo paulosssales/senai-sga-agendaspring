@@ -46,14 +46,7 @@ public class ContatoController {
 	
 	@GetMapping("/remover/{id}")
 	public String remover(@PathVariable Long id, Model model) {
-		model.addAttribute("contato", service.findById(id));
-		model.addAttribute("contatos", service.findAll());
-		return "index";
-	}
-
-	@PostMapping("/remover/{id}")
-	public String remover(@PathVariable Long id, Contato contato) {
-		service.delete(contato);
+		service.delete(service.findById(id));
 		return "redirect:/";
 	}
 
